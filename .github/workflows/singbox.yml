@@ -21,7 +21,7 @@ jobs:
       - name: Checkout singbox
         run: |
           git clone -b ${{ steps.version.outputs.id }} --depth 1 https://github.com/SagerNet/sing-box.git
-          cd sing-box
+          mv sing-box/* .
         
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v3
