@@ -47,6 +47,9 @@ jobs:
       #     else
       #       echo "versioned=ghcr.io/sagernet/sing-box:${{ github.event.inputs.tag }}" >> $GITHUB_OUTPUT
       #     fi
+      - name: list files
+        run: | 
+          ls -l
       - name: Build and release Docker images
         uses: docker/build-push-action@v5
         with:
@@ -55,6 +58,6 @@ jobs:
           build-args: |
             BUILDKIT_CONTEXT_KEEP_GIT_DIR=1
           tags: |
-            ghcr.io/sagernet/sing-box:${{ steps.version.outputs.latest }}
-            ghcr.io/sagernet/sing-box:${{ steps.version.outputs.id }}
+            ghcr.io/zengkid/sing-box:${{ steps.version.outputs.latest }}
+            ghcr.io/zengkid/sing-box:${{ steps.version.outputs.id }}
           push: true
